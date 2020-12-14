@@ -1,8 +1,8 @@
-plugins {
-    id("org.springframework.boot") version "2.4.0"
-}
+// plugins {
+//     id("org.springframework.boot") version "2.4.0"
+// }
 
-// apply(plugin = "org.springframework.boot")
+apply(plugin = "org.springframework.boot")
 
 dependencies {
     implementation(project(":library"))
