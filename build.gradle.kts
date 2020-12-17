@@ -1,27 +1,23 @@
 plugins {
-    id("java-library")
-    // id("io.spring.dependency-management") version "1.0.10.RELEASE"
-    id("org.springframework.boot") version "2.4.0" apply false
+    id("java")
+    id("org.springframework.boot") version "2.4.1" apply false
 }
 
 subprojects {
+    apply(plugin = "java-library")
+    apply(plugin = "io.spring.dependency-management")
+
     group = "me.anandsharma"
     version = "1.0"
-
-    apply(plugin = "java")
-    apply(plugin = "io.spring.dependency-management")
-    apply(plugin = "java-library")
+    java.sourceCompatibility = JavaVersion.VERSION_11
+    java.targetCompatibility = JavaVersion.VERSION_11
 
     repositories {
         jcenter()
     }
 
-    java.sourceCompatibility = JavaVersion.VERSION_11
-    java.targetCompatibility = JavaVersion.VERSION_11
-
     the<io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension>().apply {
         imports {
-            // mavenBom("org.springframework.boot:spring-boot-dependencies:2.4.0")
             mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
         }
     }
